@@ -21,9 +21,12 @@ endif
 ifeq ($(UNAME),Darwin)
 LDLIBS = -lhl -lm::foreach libraries::::if (name == "uv"):: -luv::end:: $(HASHLINK)/lib/::name::.hdll::end::
 LDFLAGS += -rpath $(HASHLINK)/lib
-else
+else ifeq($(UNAME),Linux)
 LDLIBS = -lhl -lm::foreach libraries::::if (name == "uv"):: -luv::end:: -l:::name::.hdll::end::
 LDFLAGS += -Wl,-rpath $(HASHLINK)/lib
+else
+# Windows/clang-cl
+LDLIBS = -lhl::foreach libraries:: -l::name::::end::
 endif
 
 ifeq ($(OS),Windows_NT)
