@@ -13,7 +13,7 @@ endif
 
 ifdef HASHLINK
 CPPFLAGS += -I$(HASHLINK)/include -I$(HASHLINK)/src
-LDFLAGS += -L$(HASHLINK)/lib -L$(HASHLINK)
+LDFLAGS += -L$(HASHLINK)/lib -L$(HASHLINK) -L$(HASHLINK)/x64/Release
 else
 HASHLINK = /usr/local
 endif
