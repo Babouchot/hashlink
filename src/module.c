@@ -390,7 +390,9 @@ static void *resolve_library( const char *lib, bool is_opt ) {
 
 	if( strcmp(lib,"std") == 0 ) {
 #	ifdef HL_WIN
-#		ifdef HL_64
+#		ifdef LIBHL_STATIC
+		return dlopen(NULL, RTLD_LAZY);
+#		elif defined(HL_64)
 		h = dlopen("libhl64.dll",RTLD_LAZY);
 		if( h == NULL ) h = dlopen("libhl.dll",RTLD_LAZY);
 #		else
