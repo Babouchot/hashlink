@@ -2,13 +2,13 @@
 #include <hl.h>
 #undef _GUID
 
-#ifdef HL_WIN_DESKTOP
+#ifdef _GAMING_XBOX_SCARLETT
+#include <xbo_directx.h>
+#else
 #include <dxgi.h>
 #include <d3dcommon.h>
 #include <d3d11.h>
 #include <d3dcompiler.h>
-#else
-#include <xbo_directx.h>
 #endif
 #include <assert.h>
 #include "directx.h"

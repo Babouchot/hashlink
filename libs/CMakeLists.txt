@@ -52,7 +52,7 @@ if (DOWNLOAD_DEPENDENCIES)
     include(FetchContent)
 endif()
 
-if(WIN32)
+if(WIN32 OR WITH_VKD3D)
     add_subdirectory(directx)
 endif()
 
